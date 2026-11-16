@@ -3,8 +3,8 @@ function sys_ref = convert_to_ref(sys,phi_bar,phi_til)
         for j=1:3
             T(:,:,i,j) = phi_bar(:,:,i,j)*phi_til(:,:,i,j);
             S(:,:,i,j) = inv(T(:,:,i,j));
-            T_r(:,:,i,j) = T([1:7 9:13],:,i,j);
-            S_r(:,:,i,j) = S(:,[1:7 9:13],i,j);
+            T_r(:,:,i,j) = T([1:7],:,i,j);
+            S_r(:,:,i,j) = S(:,[1:7],i,j);
         end
     end
     

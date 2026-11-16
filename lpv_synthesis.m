@@ -10,7 +10,7 @@ load lpv_model.mat
 
 Mach_rate = [-0.05 0.05];
 Altitude_rate = [-10 10];
-sys_design = convert_to_ref(sys_latdir_trunc,phi_bar,phi_til);
+sys_design = prepare_lpv_model(sys_latdir_trunc,phi_bar,phi_til);
 % sys_design=sys_latdir_trunc
 P_lpv = augmented_plant(sys_design,Mach_vec,Altitude_vec,Mach_rate,Altitude_rate);
 
@@ -54,7 +54,7 @@ Xb{6} = [b1;b_M,b_h,b_M*b_h,b_Mach,b_h^2];
 Xb{7} = [b1;b_M;b_h;b_M*b_h;b_Mach;b_h^2;b_M*b_h^2;b_Mach*b_h;b_Mach*b_h^2];
 Xb{8} = [b1, b_M, b_h,b_Mach];
 
-sel_basis = [1 2 8];
+sel_basis = [1];
 
 for i = 1:length(sel_basis)
     basis = sel_basis(i);
