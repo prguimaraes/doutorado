@@ -1,0 +1,3 @@
+[submodule "LPVTools"]
+	path = LPVTools
+	url = https://github.com/Pharald/LPVTools.git
