@@ -10,8 +10,10 @@ addpath(genpath('LPVToolsV1.0')); % Biblioteca LPV
 
 load lpv_model.mat
 
-sys_design = convert_to_ref(sys_latdir_trunc,phi_bar,phi_til);
-P_lpv = augmented_plant(sys_design,Mach_vec,Altitude_vec);
+sys_design = prepare_lpv_model(sys_latdir_trunc,phi_bar,phi_til);
+Mach_rate = [-0.05 0.05];
+Altitude_rate = [-10 10];
+P_lpv = augmented_plant(sys_design,Mach_vec,Altitude_vec,Mach_rate,Altitude_rate);
 
 
 %% Síntese Hinf para cada ponto de operação
